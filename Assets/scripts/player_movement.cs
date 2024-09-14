@@ -17,7 +17,7 @@ public class player_movement : MonoBehaviour
     //[,] keybinds = { { 1, 2, 3 }, { 4, 5, 6 } };
 
     // State for bevegelse
-    public float forceMultiplier = 200;
+    public static float forceMultiplier = 200;
     float max_speed = 5f, acceleration = 1.1f;
     public float drag = 0.95f;
     float xVelocity = 0f, zVelocity = 0f;
@@ -36,6 +36,11 @@ public class player_movement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+
+    }
+
+    private void FixedUpdate()
     {
         if (rb.transform.position.y != 0.99)
         {
@@ -120,13 +125,14 @@ public class player_movement : MonoBehaviour
             xVelocity *= drag;
             zVelocity *= drag;
         }
-        rb.AddForce(new Vector3(xVelocity * forceMultiplier, 0, zVelocity * forceMultiplier));
-        holding_key = false;
-    }
+        Vector3 forceVector = new Vector3(xVelocity * forceMultiplier, 0, zVelocity * forceMultiplier);
+        rb.AddForce(forceVector);
+        if (xVelocity != 0 || zVelocity != 0)
+        {
+            transform.rotation = Quaternion.LookRotation(forceVector);
+        }
 
-    private void FixedUpdate()
-    {
-       
+        holding_key = false;
 
     }
 }
