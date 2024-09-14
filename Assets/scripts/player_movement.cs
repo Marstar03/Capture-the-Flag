@@ -6,10 +6,11 @@ public class player_movement : MonoBehaviour
 {
     float max_speed = 5f, acceleration = 0.1f;
     float xVelocity = 0f, zVelocity = 0f;
-
+    Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         max_speed = 2;        
     }
 
@@ -22,10 +23,28 @@ public class player_movement : MonoBehaviour
     private void FixedUpdate()
     {
         // Sjekk input
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            max_speed += 2;
+            zVelocity += acceleration;
+        }
+        
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            xVelocity += acceleration;
         }
         // Bestem bevegelse
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            zVelocity -= acceleration;
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            xVelocity -= acceleration;
+        }
+
+        rb.addForce(transform)
+
     }
 }
