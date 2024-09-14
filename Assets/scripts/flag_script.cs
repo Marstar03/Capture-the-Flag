@@ -13,6 +13,7 @@ public class flag_script : MonoBehaviour
     // Skifte farge når den blir tatt over
 
     public float captureTime = 5f;
+    public float aggroRange = 30f;
     public string team = "Neutral";
     public float captureDistance = 5f;
 
@@ -24,6 +25,9 @@ public class flag_script : MonoBehaviour
     private Light capturelight;
     private GameObject lightobject;
     private GameObject captureLightObject;
+
+
+
     void Start()
     {
         player1 = GameObject.FindWithTag("player1");
@@ -98,4 +102,6 @@ public class flag_script : MonoBehaviour
             capturelight.color = 0.33f * Color.white +  0.67f * Color.blue;
         }
     }
+
+
 }
