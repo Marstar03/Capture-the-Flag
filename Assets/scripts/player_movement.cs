@@ -18,6 +18,10 @@ public class player_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (rb.transform.position.y != 0.99)
+        {
+            GetComponent<Rigidbody>().position = 
+        }
          // Sjekk input
         if (Input.GetKey(KeyCode.W))
         {
