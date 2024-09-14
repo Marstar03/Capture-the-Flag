@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-// Spiller skal kunne gå fritt langs x og z aksen
+// --Spiller skal kunne gå fritt langs x og z aksen
 // Spiller skal kunne bytte mellom forskjellige entiter som er på lag
 // Spiller skal kunne ta flag
 // Spiller skal dø når den blir tatt av en motstander på dens territorie
@@ -14,14 +14,12 @@ public class player_movement : MonoBehaviour
     // State for spillerinformasjon
     public int playerID;
     
-    //[,] keybinds = { { 1, 2, 3 }, { 4, 5, 6 } };
-
     // State for bevegelse
-    public static float forceMultiplier = 200;
+    public float forceMultiplier = 100;
     float max_speed = 5f, acceleration = 1.1f;
     public float drag = 0.95f;
     float xVelocity = 0f, zVelocity = 0f;
-    bool holding_key = false;
+    bool xholding_key, zholding_key = false;
 
     // Initialiserer unity klasser
     Rigidbody rb;
@@ -31,7 +29,14 @@ public class player_movement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        max_speed = 2;        
+        if (playerID == 0)
+        {
+            gameObject.tag = "player1";
+        }  
+         if (playerID == 1)
+        {
+            gameObject.tag = "player2";
+        }          
     }
 
     // Update is called once per frame
@@ -44,7 +49,7 @@ public class player_movement : MonoBehaviour
     {
         if (rb.transform.position.y != 0.99)
         {
-            //GetComponent<Rigidbody>().position = 
+            rb.transform.position = new Vector3(rb.transform.position[0],0.99f, rb.transform.position[2]);
         }
          // Sjekk input
         if (playerID == 0)
@@ -52,55 +57,56 @@ public class player_movement : MonoBehaviour
             if ( Input.GetKey(KeyCode.W))
             {
                 zVelocity += acceleration;
-                holding_key = true;
+                zholding_key = true;
             }
             
             if (Input.GetKey(KeyCode.A))
             {
                 xVelocity -= acceleration;
-                holding_key = true;
+                xholding_key = true;
             }
             // Bestem bevegelse
 
             if (Input.GetKey(KeyCode.S))
             {
                 zVelocity -= acceleration;
-                holding_key = true;
+                zholding_key = true;
             }
 
             if (Input.GetKey(KeyCode.D))
             {
                 xVelocity += acceleration;
-                holding_key = true;
+                xholding_key = true;
             }
         }
-        if (playerID == 1)
+        else if (playerID == 1)
         {
             if ( Input.GetKey(KeyCode.UpArrow))
             {
                 zVelocity += acceleration;
-                holding_key = true;
+                zholding_key = true;
             }
             
             if (Input.GetKey(KeyCode.LeftArrow))
             {
                 xVelocity -= acceleration;
-                holding_key = true;
+                xholding_key = true;
             }
             // Bestem bevegelse
 
             if (Input.GetKey(KeyCode.DownArrow))
             {
                 zVelocity -= acceleration;
-                holding_key = true;
+                zholding_key = true;
             }
 
             if (Input.GetKey(KeyCode.RightArrow))
             {
                 xVelocity += acceleration;
-                holding_key = true;
+                xholding_key = true;
             }
         }
+        // Enforce max speed
         if (xVelocity < -max_speed)
         {
             xVelocity = -max_speed;
@@ -119,10 +125,12 @@ public class player_movement : MonoBehaviour
             zVelocity = max_speed;
         }
 
-        if (holding_key == false)
+        if (xholding_key == false)
         {
-            //acceleration = 0;
             xVelocity *= drag;
+        }
+        if (zholding_key == false)
+        {
             zVelocity *= drag;
         }
         Vector3 forceVector = new Vector3(xVelocity * forceMultiplier, 0, zVelocity * forceMultiplier);
@@ -132,7 +140,8 @@ public class player_movement : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(forceVector);
         }
 
-        holding_key = false;
+        xholding_key = false;
+        zholding_key = false;
 
     }
 }
