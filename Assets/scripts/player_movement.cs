@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class player_movement : MonoBehaviour
 {
-    float max_speed = 5f, acceleration = 0.1f;
+    public float forceMultiplier = 200;
+    float max_speed = 5f, acceleration = 1.1f;
     float xVelocity = 0f, zVelocity = 0f;
     Rigidbody rb;
     // Start is called before the first frame update
@@ -17,34 +18,50 @@ public class player_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        max_speed = 2;
-    }
-
-    private void FixedUpdate()
-    {
-        // Sjekk input
-        if (Input.GetKeyDown(KeyCode.W))
+         // Sjekk input
+        if (Input.GetKey(KeyCode.W))
         {
             zVelocity += acceleration;
         }
         
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
-            xVelocity += acceleration;
+            xVelocity -= acceleration;
         }
         // Bestem bevegelse
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
             zVelocity -= acceleration;
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
-            xVelocity -= acceleration;
+            xVelocity += acceleration;
         }
+        if (xVelocity < -max_speed)
+        {
+            xVelocity = -max_speed;
+        }
+        if (xVelocity > max_speed)
+        {
+            xVelocity = max_speed;
+        }
+        
+        if (zVelocity < -max_speed)
+        {
+            zVelocity = -max_speed;
+        }
+        if (zVelocity > max_speed)
+        {
+            zVelocity = max_speed;
+        }
+        rb.AddForce(new Vector3(xVelocity * forceMultiplier, 0, zVelocity * forceMultiplier));
+    }
 
-        rb.addForce(transform)
+    private void FixedUpdate()
+    {
+       
 
     }
 }
