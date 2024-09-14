@@ -13,7 +13,7 @@ public class player_movement : MonoBehaviour
 {
     // State for spillerinformasjon
     public int playerID;
-    
+
     // State for bevegelse
     public float forceMultiplier = 100;
     float max_speed = 5f, acceleration = 1.1f;
@@ -23,7 +23,6 @@ public class player_movement : MonoBehaviour
 
     // Initialiserer unity klasser
     Rigidbody rb;
-
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +35,8 @@ public class player_movement : MonoBehaviour
          if (playerID == 1)
         {
             gameObject.tag = "player2";
-        }          
+        }        
+ 
     }
 
     // Update is called once per frame
