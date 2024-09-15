@@ -17,33 +17,45 @@ public class flag_script : MonoBehaviour
     public string team = "Neutral";
     public float captureDistance = 5f;
 
+    public score_manager scoreKeeper;
     private GameObject player1, player2;
     private float p1Distance, p2Distance;
     private float p1CaptureTime, p2CaptureTime;
+    private List<GameObject> entityList;
 
     private Light light;
     private Light capturelight;
     private GameObject lightobject;
     private GameObject captureLightObject;
 
-
+    public bool isInRange(GameObject player)
+    {
+        if (player == null)
+        {
+            return false;
+        }
+        return Vector3.Distance(gameObject.transform.position, player.transform.position) < aggroRange;
+    }
 
     void Start()
     {
         player1 = GameObject.FindWithTag("player1");
         player2 = GameObject.FindWithTag("player2");
+        GameObject gm = GameObject.Find("GameManager");
+        //scoreKeeper = gm.GetComponent<score_manager>();
         p1CaptureTime = 0;
         p2CaptureTime = 0;
-
+        transform.position = new Vector3(transform.position.x, 1.62f, transform.position.z);
         // Generate light
         GameObject lightobject = gameObject.transform.GetChild(0).gameObject;
         GameObject captureLightObject = gameObject.transform.GetChild(1).gameObject;
         light = lightobject.GetComponent<Light>();
         capturelight = captureLightObject.GetComponent<Light>();
-        light.color = Color.green;
-        capturelight.color = 0.33f * Color.white +  0.67f * Color.green;
+        light.color = new Color(0.6f,0.3f,0.6f); //*0.8f + 0.2f * Color.blue; 
+        capturelight.color = 0.5f*Color.green + 0.5f * light.color;
         lightobject.transform.position = gameObject.transform.position; 
         captureLightObject.transform.position = gameObject.transform.position;
+        InvokeRepeating("timer", 5f, 5f);
     }
 
     // Update is called once per frame
@@ -94,12 +106,28 @@ public class flag_script : MonoBehaviour
         if (team == "player 1")
         {
             light.color = Color.red;
-            capturelight.color = 0.33f * Color.white +  0.67f * Color.red;
+            capturelight.color = 0.33f * Color.white +  0.67f * light.color;
+            
         }
         else if (team == "player 2")
         {
             light.color = Color.blue;
             capturelight.color = 0.33f * Color.white +  0.67f * Color.blue;
+        }
+    }
+
+    public void timer() {
+        if (scoreKeeper == null)
+        {
+            return;
+        }
+        if (team == "player 1")
+        {
+            scoreKeeper.increaseScore(1);
+        }
+        else if (team == "player 2")
+        {
+            scoreKeeper.increaseScore(2);
         }
     }
 

@@ -29,6 +29,7 @@ public class camera_script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (player != null)
         {
             transform.position = new Vector3(player.transform.position[0], height, player.transform.position[2]-xOffset);

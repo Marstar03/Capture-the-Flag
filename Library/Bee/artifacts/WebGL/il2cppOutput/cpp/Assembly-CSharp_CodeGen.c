@@ -1,0 +1,140 @@
+﻿#include "pch-c.h"
+#ifndef _MSC_VER
+# include <alloca.h>
+#else
+# include <malloc.h>
+#endif
+
+
+#include "codegen/il2cpp-codegen-metadata.h"
+
+
+
+
+
+extern void game_manager_get_GameManager_m91DF8F2AE0558274A62C593EEEFFBBFFEDCC93A0 (void);
+extern void game_manager_set_GameManager_m4EAA3E7F7A0DC321D5CC10CD6BFAE897AFAD899F (void);
+extern void game_manager_Awake_m57A202E6FB7CE071BF35DF412B071F419D577484 (void);
+extern void game_manager_startGame_m1BD50FBDEB260D192F36552D60E392448828B9DB (void);
+extern void game_manager_endGame_mF1BF2B547E8A211269F59E264B538FC1180CC4AF (void);
+extern void game_manager_Start_m459F9FB41223A403D03A66DC105230939245139D (void);
+extern void game_manager_updateScores_m8B6CA530576FF4552F9EE04E62A55ECB0B1C90F3 (void);
+extern void game_manager_Update_m4ABB9E176A67DA20D2441CC557036B5DDD2A5D87 (void);
+extern void game_manager_timer_mD7FF2F4BE942EC45FCC79E4CAB0384DC94446F24 (void);
+extern void game_manager__ctor_m689F9B41ADA4D580E558690D389A09E6CC0E7334 (void);
+extern void score_manager_Start_mC85394A0AB7D2D24990AE09684CB47403A0928D7 (void);
+extern void score_manager_increaseScore_mC3E0FC3C8CAA35C4BEF36D2DD065D6BD756B0B6E (void);
+extern void score_manager_updateScoreboard_m7F2597A0B9CC15CFD3663987578EE290D5B67868 (void);
+extern void score_manager_Update_m4E6675CB661D8CE583B0E12695FCBA287AC2430B (void);
+extern void score_manager__ctor_m25AE17DFEE0DEB585B41808760DDD25B58197A86 (void);
+extern void camera_script_Start_m59A731BE64BE44C33B0F068FC48DD5E1A376D13A (void);
+extern void camera_script_Update_m2884FA86E91CFAD22D934B2C8FD484280A510A2D (void);
+extern void camera_script__ctor_m33993B4C92B215A76A960507064BAE50CA409EB9 (void);
+extern void enemy_movement_Start_m5F7C9CA37E3356B4C1CF32EB5C5713F282645B03 (void);
+extern void enemy_movement_Update_m6975CE1B9687D597A578D76892F211C91B097153 (void);
+extern void enemy_movement_SetTarget_mB039A36882CD3D80315C205E8ECC2B65B9B47C63 (void);
+extern void enemy_movement__ctor_m529A9D01F8528DDB7B97DF8A8D8C84B523FF174F (void);
+extern void flag_script_isInRange_m3C6F6A8D689447AA354FEA5E3AA7AB8CDA0D48C0 (void);
+extern void flag_script_Start_mA7175B076A46D7DBC138CB3DD97357AF2786AA0E (void);
+extern void flag_script_FixedUpdate_m6B656F518F5160EB373641F5734DA375F627B6B7 (void);
+extern void flag_script_timer_m96BB43909A001FE528AA9CA9B9E2B3EDC0222146 (void);
+extern void flag_script__ctor_m0896B2761F47D44E59084414AF077DB4A7A82977 (void);
+extern void player_movement_Start_m6142120A87AD4A04B331AD8D3D3F75625C44DB45 (void);
+extern void player_movement_Update_m5AECA3C0927424ACEE1FDBFEBEF1D7852ABBF561 (void);
+extern void player_movement_FixedUpdate_m5CFD96B52A7D4227202502626B9AA608BD554187 (void);
+extern void player_movement__ctor_m2E04E918867DE3367D71F1D40CAA5BF48B3F137B (void);
+extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mBEB95BEB954BB63E9710BBC7AD5E78C4CB0A0033 (void);
+extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mE70FB23ACC1EA12ABC948AA22C2E78B2D0AA39B1 (void);
+static Il2CppMethodPointer s_methodPointers[33] = 
+{
+	game_manager_get_GameManager_m91DF8F2AE0558274A62C593EEEFFBBFFEDCC93A0,
+	game_manager_set_GameManager_m4EAA3E7F7A0DC321D5CC10CD6BFAE897AFAD899F,
+	game_manager_Awake_m57A202E6FB7CE071BF35DF412B071F419D577484,
+	game_manager_startGame_m1BD50FBDEB260D192F36552D60E392448828B9DB,
+	game_manager_endGame_mF1BF2B547E8A211269F59E264B538FC1180CC4AF,
+	game_manager_Start_m459F9FB41223A403D03A66DC105230939245139D,
+	game_manager_updateScores_m8B6CA530576FF4552F9EE04E62A55ECB0B1C90F3,
+	game_manager_Update_m4ABB9E176A67DA20D2441CC557036B5DDD2A5D87,
+	game_manager_timer_mD7FF2F4BE942EC45FCC79E4CAB0384DC94446F24,
+	game_manager__ctor_m689F9B41ADA4D580E558690D389A09E6CC0E7334,
+	score_manager_Start_mC85394A0AB7D2D24990AE09684CB47403A0928D7,
+	score_manager_increaseScore_mC3E0FC3C8CAA35C4BEF36D2DD065D6BD756B0B6E,
+	score_manager_updateScoreboard_m7F2597A0B9CC15CFD3663987578EE290D5B67868,
+	score_manager_Update_m4E6675CB661D8CE583B0E12695FCBA287AC2430B,
+	score_manager__ctor_m25AE17DFEE0DEB585B41808760DDD25B58197A86,
+	camera_script_Start_m59A731BE64BE44C33B0F068FC48DD5E1A376D13A,
+	camera_script_Update_m2884FA86E91CFAD22D934B2C8FD484280A510A2D,
+	camera_script__ctor_m33993B4C92B215A76A960507064BAE50CA409EB9,
+	enemy_movement_Start_m5F7C9CA37E3356B4C1CF32EB5C5713F282645B03,
+	enemy_movement_Update_m6975CE1B9687D597A578D76892F211C91B097153,
+	enemy_movement_SetTarget_mB039A36882CD3D80315C205E8ECC2B65B9B47C63,
+	enemy_movement__ctor_m529A9D01F8528DDB7B97DF8A8D8C84B523FF174F,
+	flag_script_isInRange_m3C6F6A8D689447AA354FEA5E3AA7AB8CDA0D48C0,
+	flag_script_Start_mA7175B076A46D7DBC138CB3DD97357AF2786AA0E,
+	flag_script_FixedUpdate_m6B656F518F5160EB373641F5734DA375F627B6B7,
+	flag_script_timer_m96BB43909A001FE528AA9CA9B9E2B3EDC0222146,
+	flag_script__ctor_m0896B2761F47D44E59084414AF077DB4A7A82977,
+	player_movement_Start_m6142120A87AD4A04B331AD8D3D3F75625C44DB45,
+	player_movement_Update_m5AECA3C0927424ACEE1FDBFEBEF1D7852ABBF561,
+	player_movement_FixedUpdate_m5CFD96B52A7D4227202502626B9AA608BD554187,
+	player_movement__ctor_m2E04E918867DE3367D71F1D40CAA5BF48B3F137B,
+	UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mBEB95BEB954BB63E9710BBC7AD5E78C4CB0A0033,
+	UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mE70FB23ACC1EA12ABC948AA22C2E78B2D0AA39B1,
+};
+static const int32_t s_InvokerIndices[33] = 
+{
+	6071,
+	5978,
+	4203,
+	4203,
+	4203,
+	4203,
+	4203,
+	4203,
+	4203,
+	4203,
+	4203,
+	3374,
+	4203,
+	4203,
+	4203,
+	4203,
+	4203,
+	4203,
+	4203,
+	4203,
+	3398,
+	4203,
+	2428,
+	4203,
+	4203,
+	4203,
+	4203,
+	4203,
+	4203,
+	4203,
+	4203,
+	6104,
+	4203,
+};
+IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
+const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
+{
+	"Assembly-CSharp.dll",
+	33,
+	s_methodPointers,
+	0,
+	NULL,
+	s_InvokerIndices,
+	0,
+	NULL,
+	0,
+	NULL,
+	0,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+};
